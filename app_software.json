@@ -1,0 +1,23 @@
+[
+  {
+    "id": "whatsapp-messenger",
+    "title": "WhatsApp Messenger: Features, Privacy, and How to Use It in 2026",
+    "slug": "whatsapp-messenger",
+    "description": "Learn what WhatsApp Messenger does, how to set it up, use its main features, protect your privacy, and decide whether it is the right messaging app for you.",
+    "image": "app_software/app_software_photo/whatsapp_photo/whatsapp_logo.jpg",
+    "imageAlt": "WhatsApp Messenger app displayed on a smartphone",
+    "article": "app_software/articles/whatsapp.html",
+    "category": "Apps & Software",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-01",
+    "updatedAt": "2026-11-01",
+    "featured": false,
+    "tags": [
+      "WhatsApp",
+      "Messaging App",
+      "Android Apps",
+      "iPhone Apps",
+      "App & Software"
+    ]
+  }
+]

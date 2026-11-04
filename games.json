@@ -1,0 +1,23 @@
+
+[
+  {
+    "id": "baper-rasta",
+    "title": "Baper Rasta Game Review: A Funny Bangladesh Rickshaw Game",
+    "slug": "baper-rasta",
+    "description": "Explore Baper Rasta, a humorous Bangladesh-themed rickshaw game featuring Dhaka traffic, local places, meme-style horn sounds, funny collisions, and satirical elements.",
+    "image": "games/games_photo/baper_rasta/baper_rasta_json.png",
+    "imageAlt": "Baper Rasta game thumbnail featuring its Bangladesh-themed rickshaw gameplay",
+    "article": "games/articles/baper_rasta.html",
+    "category": "Games",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-10-28",
+    "updatedAt": "2026-10-28",
+    "featured": false,
+    "tags": [
+      "Game",
+      "Bangladeshi Game",
+      "Mobile Game",
+      "Funny game"
+    ]
+  }
+]

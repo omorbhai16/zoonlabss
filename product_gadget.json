@@ -1,0 +1,23 @@
+[
+  {
+    "id": "product-gadget",
+    "title": "SSD vs HDD: Which One Should You Buy in 2026?",
+    "slug": "product-gadget-article",
+    "description": "Learn the difference between SSD and HDD. Compare speed, storage capacity, price, durability, and performance to choose the right storage drive in 2026.",
+    "image": "product_gadget/product_gadget_photo/ssd_vs_hdd/ssd_vs_hdd.jpg",
+    "imageAlt": "SSD and HDD storage drives compared side by side",
+    "article": "product_gadget/articles/ssd_vs_hdd.html",
+    "category": "Product & Gadget",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-03",
+    "updatedAt": "2026-11-03",
+    "featured": false,
+    "tags": [
+      "SSD",
+      "HDD",
+      "Storage",
+      "Computer Hardware",
+      "Technology"
+    ]
+  }
+]
