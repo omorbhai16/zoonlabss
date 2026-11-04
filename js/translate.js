@@ -75,17 +75,46 @@
     var m = document.cookie.match(/(?:^|;\s*)googtrans=\/[^/;]*\/([^;]+)/);
     return m ? decodeURIComponent(m[1]) : null;
   }
-  function setCookie(code) {
-    document.cookie = "googtrans=/en/" + code + "; path=/; SameSite=Lax";
+  /* Every place a "googtrans" cookie could live. Google's own script writes this cookie on the
+     site's domain (".example.com") as well as on the host, while we used to write it on the host only.
+     Two cookies with the same name then exist, and Google may read the OLD one (for example an earlier
+     "Arabic" choice) no matter which language was picked later. So before every change we delete the
+     cookie everywhere, and only then write one fresh copy. */
+  function cookieDomains() {
+    var h = location.hostname,
+      out = [""];
+    if (h && h.indexOf(".") !== -1 && !/^[\d.]+$/.test(h) && h.indexOf(":") === -1) {
+      var parts = h.split(".");
+      for (var i = 0; i < parts.length - 1; i++) {
+        var d = parts.slice(i).join(".");
+        out.push(d, "." + d);
+      }
+    }
+    return out;
+  }
+  function cookiePaths() {
+    var out = ["/"],
+      segs = location.pathname.split("/"),
+      acc = "";
+    for (var i = 1; i < segs.length; i++) {
+      acc += "/" + segs[i];
+      if (acc !== "/") out.push(acc);
+    }
+    return out;
   }
   function clearCookies() {
-    var past = "; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-    document.cookie = "googtrans=" + past;
-    var h = location.hostname;
-    if (h && h.indexOf(".") !== -1) {
-      document.cookie = "googtrans=" + past + "; domain=" + h;
-      document.cookie = "googtrans=" + past + "; domain=." + h;
-    }
+    var past = "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0";
+    var domains = cookieDomains(),
+      paths = cookiePaths();
+    paths.forEach(function (p) {
+      domains.forEach(function (d) {
+        document.cookie = "googtrans" + past + "; path=" + p + (d ? "; domain=" + d : "");
+      });
+    });
+  }
+  function setCookie(code) {
+    clearCookies();
+    document.cookie = "googtrans=/en/" + code + "; path=/; SameSite=Lax";
   }
   function langName(code) {
     for (var i = 0; i < LANGS.length; i++) if (LANGS[i][0] === code) return LANGS[i];
@@ -118,10 +147,39 @@
       known[l[0]] = true;
       if (ALIAS[l[0]]) known[ALIAS[l[0]]] = true;
     });
+    var added = false;
     Array.prototype.forEach.call(sel.options, function (o) {
-      if (o.value && !known[o.value]) LANGS.push([o.value, o.text, o.text]);
+      if (o.value && !known[o.value]) {
+        LANGS.push([o.value, o.text, o.text]);
+        added = true;
+      }
     });
-    if (!panel.hidden) renderList();
+    // Re-draw the list only if something new was added, and keep the visitor's scroll position
+    // (a surprise redraw while choosing could make the click land on a different language).
+    if (added && !panel.hidden) {
+      var top = list.scrollTop;
+      renderList();
+      list.scrollTop = top;
+    }
+  }
+  /* Safety net: once Google's widget is ready, make sure it really is on the language the visitor
+     picked. If it picked up a stale language by itself (e.g. Arabic from an old cookie), switch it. */
+  var enforced = false;
+  function enforceActive() {
+    if (enforced || !active) return;
+    enforced = true;
+    setTimeout(function () {
+      var sel = findCombo();
+      if (!sel) return;
+      var want = null;
+      Array.prototype.forEach.call(sel.options, function (o) {
+        if (o.value === active || (ALIAS[active] && o.value === ALIAS[active])) want = o.value;
+      });
+      if (want && sel.value !== want) {
+        sel.value = want;
+        sel.dispatchEvent(new Event("change"));
+      }
+    }, 700);
   }
   function loadWidget() {
     if (widget.promise) return widget.promise;
@@ -156,6 +214,7 @@
             clearTimeout(timer);
             widget.failed = null;
             mergeExtras(combo);
+            enforceActive();
             return resolve();
           }
           setTimeout(wait, 40);
