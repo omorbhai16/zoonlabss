@@ -1,23 +1,49 @@
 [
-  {
-    "id": "product-gadget",
-    "title": "SSD vs HDD: Which One Should You Buy in 2026?",
-    "slug": "product-gadget-article",
-    "description": "Learn the difference between SSD and HDD. Compare speed, storage capacity, price, durability, and performance to choose the right storage drive in 2026.",
-    "image": "product_gadget/product_gadget_photo/ssd_vs_hdd/ssd_vs_hdd.jpg",
-    "imageAlt": "SSD and HDD storage drives compared side by side",
-    "article": "product_gadget/articles/ssd_vs_hdd.html",
-    "category": "Product & Gadget",
-    "author": "Zoon Labss Editorial Team",
-    "publishedAt": "2026-11-03",
-    "updatedAt": "2026-11-03",
-    "featured": false,
-    "tags": [
-      "SSD",
-      "HDD",
-      "Storage",
-      "Computer Hardware",
-      "Technology"
-    ]
-  }
+{
+"id": "product-gadget",
+"title": "SSD vs HDD: Which One Should You Buy in 2026?",
+"slug": "product-gadget-article",
+"description": "Learn the difference between SSD and HDD. Compare speed, storage capacity, price, durability, and performance to choose the right storage drive in 2026.",
+"image": "product_gadget/product_gadget_photo/ssd_vs_hdd/ssd_vs_hdd.jpg",
+"imageAlt": "SSD and HDD storage drives compared side by side",
+"article": "product_gadget/articles/ssd_vs_hdd.html",
+"category": "Product & Gadget",
+"author": "Zoon Labss Editorial Team",
+"publishedAt": "2026-11-03",
+"updatedAt": "2026-11-03",
+"featured": false,
+"tags": [
+"SSD",
+"HDD",
+"Storage",
+"Computer Hardware",
+"Technology"
+]
+},
+{
+"id": "ram-comparison-2026",
+"title": "8GB vs 16GB vs 32GB vs 64GB RAM: How Much RAM Do You Really Need in 2026?",
+"slug": "ram-comparison-2026",
+"description": "Compare 8GB, 16GB, 32GB, and 64GB RAM to understand how much memory you need for everyday use, gaming, programming, video editing, and professional workloads in 2026.",
+"image": "product_gadget/product_gadget_photo/8gbram-16gbram-32gbram-64gbram/8gbramvs16gbramvs32gbramvs64gbram.jpg",
+"imageAlt": "8GB, 16GB, 32GB, and 64GB RAM modules compared side by side",
+"article": "product_gadget/articles/8gbram-16gbram-32gbram-64gbram.html",
+"category": "Product & Gadget",
+"author": "Zoon Labss Editorial Team",
+"publishedAt": "2026-11-05",
+"updatedAt": "2026-11-05",
+"featured": false,
+"tags": [
+"RAM",
+"8GB RAM",
+"16GB RAM",
+"32GB RAM",
+"64GB RAM",
+"Computer Hardware",
+"Gaming",
+"Video Editing",
+"Programming",
+"Technology"
+]
+}
 ]
