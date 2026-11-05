@@ -4,7 +4,7 @@
     "title": "Coming soon",
     "slug": "my-first-blog-post",
     "description": "coming Soon",
-    "image": "blog/blog_photo/coming_soon.jpg",
+    "image": "blog/blog_photo/coming_soon/coming_soon.jpg",
     "imageAlt": "Short description of the thumbnail image",
     "article": "blog/articles/wwcodework.html",
     "category": "Blog",
