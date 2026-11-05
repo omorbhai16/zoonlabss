@@ -1,4 +1,3 @@
-
 [
   {
     "id": "baper-rasta",
@@ -18,6 +17,27 @@
       "Bangladeshi Game",
       "Mobile Game",
       "Funny game"
+    ]
+  },
+  {
+    "id": "minecraft-not-working",
+    "title": "Minecraft Not Working? 20 Common Problems and How to Fix Them 2026",
+    "slug": "minecraft-not-working",
+    "description": "Minecraft not working? Learn how to fix 20 common Minecraft problems, including crashes, launcher errors, low FPS, connection issues, mods, worlds, and more.",
+    "image": "games/games_photo/minecraft-not-working/minecraft-not-working-main.jpg",
+    "imageAlt": "Minecraft gameplay representing common game problems and troubleshooting",
+    "article": "games/articles/minecraft-not-working.html",
+    "category": "Games",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-06",
+    "updatedAt": "2026-11-06",
+    "featured": false,
+    "tags": [
+      "Minecraft",
+      "Minecraft Problems",
+      "Minecraft Errors",
+      "Minecraft Fixes",
+      "Gaming Troubleshooting"
     ]
   }
 ]
