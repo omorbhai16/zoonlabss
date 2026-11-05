@@ -1,17 +1,17 @@
-/*[
+[
   {
     "id": "my-first-blog-post",
-    "title": "Your Article Title Here",
+    "title": "Coming soon",
     "slug": "my-first-blog-post",
-    "description": "A short description of the article, about 1-2 sentences.",
+    "description": "coming Soon",
     "image": "blog/blog_photo/my_first_blog_post/my-first-blog-post.webp",
     "imageAlt": "Short description of the thumbnail image",
-    "article": "blog/articles/my_first_blog_post.html",
+    "article": "blog/articles/wwcodework.html",
     "category": "Blog",
     "author": "Zoon Labss Editorial Team",
     "publishedAt": "2026-11-07",
     "updatedAt": "2026-11-07",
     "featured": false,
-    "tags": ["Freelancing", "Online Earning", "Career"]
+    "tags": ["Coming Soon"]
   }
-]*/
+]
