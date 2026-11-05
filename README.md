@@ -10,7 +10,7 @@ python3 -m http.server 8000
 Open http://localhost:8000/
 
 ## Folder map
-- `*.html` + `*.json` at the root: home, categories (product_gadget, ai_tools, app_software, games), About, Contact.
+- `*.html` + `*.json` at the root: home, categories (product_gadget, ai_tools, app_software, games, blog), About, Contact.
 - `<category>/articles/`: one standalone HTML file per article. `<category>/<category>_photo/<item_folder>/`: that article's images (one folder per item, see "Image organization").
 - `templates/article_template.html`: starter file for new articles. `css/`, `js/`, `assets/`: shared files.
 
@@ -22,6 +22,7 @@ product_gadget/product_gadget_photo/<item_folder>/
 ai_tools/ai_tools_photo/<item_folder>/
 app_software/app_software_photo/<item_folder>/
 games/games_photo/<item_folder>/        e.g. games/games_photo/baper_rasta/
+blog/blog_photo/<item_folder>/          e.g. blog/blog_photo/my_article/
 ```
 Current examples: `product_gadget/product_gadget_photo/product_gadget_article/product-gadget-article.webp`, `ai_tools/ai_tools_photo/ai_tools_article/ai-tools-article.webp`, `app_software/app_software_photo/app_software_article/app-software-article.webp`.
 
@@ -42,7 +43,7 @@ Current examples: `product_gadget/product_gadget_photo/product_gadget_article/pr
 **Avoid broken links:** `js/script.js` accepts only `<category>/<category>_photo/<item_folder>/<file>` for the JSON `image` field (exactly one folder level, extensions webp, avif, png, jpg, jpeg); other paths are skipped and the card shows a placeholder. After adding content, run the local server, open the card and the article, and confirm every image loads and the console is clean. Search the project for the old file name when renaming or moving an image.
 
 ## Add a new article
-1. **Copy the template:** copy `templates/article_template.html` to `<category>/articles/my_article.html` (categories: `product_gadget`, `ai_tools`, `app_software`, `games`). File names: letters, numbers, `_` or `-` only.
+1. **Copy the template:** copy `templates/article_template.html` to `<category>/articles/my_article.html` (categories: `product_gadget`, `ai_tools`, `app_software`, `games`, `blog`). File names: letters, numbers, `_` or `-` only.
 2. **Fix paths in the copy:** the template sits one folder shallower, so in the copy replace every `../` with `../../` (CSS, JS, images, header and footer links). Also change `data-category` in the Related block and the category breadcrumb. In the header menu, put `aria-current="true"` on the link of the article's own category (remove it from any other link) so the blue marker shows where the reader is.
 3. **Write the content:** edit `<title>`, meta description, canonical URL (`https://zoonlabss.com/<category>/articles/my_article.html`), Open Graph/Twitter tags, the single `<h1>`, `<h2>`/`<h3>` headings, paragraphs and links. Show author and date only if accurate. Remove the optional blocks you do not need.
 4. **Add images:** create the item folder `<category>/<category>_photo/<item_folder>/` (see "Image organization") and put all of that item's images there (WebP preferred). Set the real `width`/`height`. Do not lazy-load the top image. Always write useful `alt` text.
@@ -87,7 +88,7 @@ Field guide (JSON has no comments, so it is explained here):
 | `image` | no | `<category>/<category>_photo/<item_folder>/<file>.webp` |
 | `imageAlt` | no | Describes the image |
 | `article` | yes | `<category>/articles/<file>.html` |
-| `category` | yes | Product & Gadget, AI & Tools, Apps & Software or Games |
+| `category` | yes | Product & Gadget, AI & Tools, Apps & Software, Games or Blog |
 | `author` | no | Only if accurate |
 | `publishedAt` / `updatedAt` | yes / no | `YYYY-MM-DD` |
 | `featured` | no | `true` shows it in Featured on the homepage |
