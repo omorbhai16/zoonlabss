@@ -36,6 +36,13 @@
       label: "Games",
       page: "games.html",
     },
+    blog: {
+      file: "blog.json",
+      dir: "blog",
+      photo: "blog_photo",
+      label: "Blog",
+      page: "blog.html",
+    },
   };
   var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -230,6 +237,22 @@
   }
 
   /* ---- Header / footer ---- */
+  /* Safety net: pages whose static header/footer predate the Blog category (for example older
+     article files) get a Blog link inserted right after "Games". Does nothing when it is already there. */
+  function addBlogLinks() {
+    ["#site-nav", ".site-footer"].forEach(function (sel) {
+      var root = document.querySelector(sel);
+      if (!root || root.querySelector('a[href$="blog.html"]')) return;
+      var g = root.querySelector('a[href$="games.html"]');
+      if (!g || !g.parentNode || g.parentNode.tagName !== "LI") return;
+      var li = el("li"),
+        a = el("a", null, "Blog");
+      a.href = g.getAttribute("href").replace(/games\.html$/, "blog.html");
+      li.appendChild(a);
+      g.parentNode.parentNode.insertBefore(li, g.parentNode.nextSibling);
+    });
+  }
+
   function initChrome() {
     var btn = document.getElementById("menu-btn"),
       nav = document.getElementById("site-nav");
@@ -248,6 +271,7 @@
         }
       });
     }
+    addBlogLinks();
     var y = document.getElementById("year");
     if (y) y.textContent = String(new Date().getFullYear());
   }
