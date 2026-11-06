@@ -1,17 +1,24 @@
 [
   {
-    "id": "my-first-blog-post",
-    "title": "Coming soon",
-    "slug": "my-first-blog-post",
-    "description": "coming Soon",
-    "image": "blog/blog_photo/coming_soon/coming_soon.jpg",
-    "imageAlt": "Short description of the thumbnail image",
-    "article": "blog/articles/wwcodework.html",
+    "id": "how-much-personal-information-online",
+    "title": "How Much of Your Personal Information Is Available Online?",
+    "slug": "how-much-personal-information-online",
+    "description": "Discover how much of your personal information is available online, where it comes from, how to check your digital footprint, and what you can do to protect your privacy.",
+    "image": "blog/blog_photo/personal_information_online/personal-information-online.jpg",
+    "imageAlt": "Illustration showing personal information and digital footprints across the internet",
+    "article": "blog/articles/how-much-personal-information-online.html",
     "category": "Blog",
     "author": "Zoon Labss Editorial Team",
-    "publishedAt": "2026-11-07",
+    "publishedAt": "2026-11-06",
     "updatedAt": "2026-11-07",
     "featured": false,
-    "tags": ["Coming Soon"]
+    "tags": [
+      "Online Privacy",
+      "Personal Information",
+      "Digital Footprint",
+      "Data Brokers",
+      "Internet Security",
+      "Privacy Protection"
+    ]
   }
 ]
