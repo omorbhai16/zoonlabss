@@ -19,5 +19,28 @@
       "iPhone Apps",
       "App & Software"
     ]
+  },
+  {
+    "id": "microsoft-excel-not-working",
+    "title": "Microsoft Excel Not Working? 20 Common Problems and How to Fix Them 2026",
+    "slug": "microsoft-excel-not-working",
+    "description": "Having trouble with Microsoft Excel? Learn how to fix 20 common Excel problems, including crashes, freezing, blank screens, formula errors, and more with simple step-by-step solutions.",
+    "image": "app_software/app_software_photo/microsoft-excel/microsoft-excel-not-working.jpg",
+    "imageAlt": "Microsoft Excel spreadsheet displayed on a computer screen",
+    "article": "app_software/articles/microsoft-excel-not-working.html",
+    "category": "Apps & Software",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-06",
+    "updatedAt": "2026-11-06",
+    "featured": false,
+    "tags": [
+      "Microsoft Excel",
+      "Excel Not Working",
+      "Excel Problems",
+      "Excel Troubleshooting",
+      "Microsoft Office",
+      "Productivity Software",
+      "Apps & Software"
+    ]
   }
 ]
