@@ -1,3 +1,4 @@
+
 [
   {
     "id": "whatsapp-messenger",
@@ -40,6 +41,29 @@
       "Excel Troubleshooting",
       "Microsoft Office",
       "Productivity Software",
+      "Apps & Software"
+    ]
+  },
+  {
+    "id": "rolling-icon-app",
+    "title": "Rolling Icon App: Features, Uses, and How to Customize Your Screen",
+    "slug": "rolling-icon-app",
+    "description": "Discover Rolling Icon, an interactive customization app that makes app icons and photos roll with gestures, gravity, collision effects, and live wallpapers.",
+    "image": "app_software/app_software_photo/rolling-icon/rolling-icon-app.jpg",
+    "imageAlt": "Rolling Icon app displaying interactive rolling icons on a smartphone",
+    "article": "app_software/articles/rolling-icon-app.html",
+    "category": "Apps & Software",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-08",
+    "updatedAt": "2026-11-08",
+    "featured": false,
+    "tags": [
+      "Rolling Icon",
+      "Rolling Icon App",
+      "Live Wallpaper",
+      "Android Customization",
+      "3D Effects",
+      "Interactive App Icons",
       "Apps & Software"
     ]
   }
