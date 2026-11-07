@@ -20,5 +20,27 @@
       "Internet Security",
       "Privacy Protection"
     ]
+  },
+  {
+    "id": "why-you-should-never-use-the-same-password-everywhere",
+    "title": "Why You Should Never Use the Same Password Everywhere",
+    "slug": "why-you-should-never-use-the-same-password-everywhere",
+    "description": "Learn why reusing the same password across websites puts your accounts at risk, how credential stuffing attacks work, and how password managers and multi-factor authentication can help protect your accounts.",
+    "image": "blog/blog_photo/password_reuse/same-password-everywhere.jpg",
+    "imageAlt": "Illustration showing the security risks of reusing the same password across multiple online accounts",
+    "article": "blog/articles/why-you-should-never-use-the-same-password-everywhere.html",
+    "category": "Blog",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-07",
+    "updatedAt": "2026-11-07",
+    "featured": false,
+    "tags": [
+      "Password Security",
+      "Online Security",
+      "Credential Stuffing",
+      "Password Manager",
+      "Multi-Factor Authentication",
+      "Account Protection"
+    ]
   }
 ]
