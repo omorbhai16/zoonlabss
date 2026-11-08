@@ -41,5 +41,27 @@
       "ChatGPT",
       "AI Tools"
     ]
+  },
+  {
+    "id": "social-blade",
+    "title": "Social Blade: Track Social Media Statistics, Growth, and Estimated Earnings",
+    "slug": "social-blade",
+    "description": "Learn what Social Blade is, how it tracks social media statistics, how to check creator growth and estimated earnings, which platforms it supports, and how accurate its data is.",
+    "image": "ai_tools/ai_tools_photo/social-blade/social-blade.png",
+    "imageAlt": "Social Blade analytics dashboard showing social media statistics and creator growth",
+    "article": "ai_tools/articles/social-blade.html",
+    "category": "AI & Tools",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-09",
+    "updatedAt": "2026-11-09",
+    "featured": false,
+    "tags": [
+      "Social Blade",
+      "Social Media Analytics",
+      "YouTube Statistics",
+      "Creator Analytics",
+      "Estimated Earnings",
+      "AI Tools"
+    ]
   }
 ]
