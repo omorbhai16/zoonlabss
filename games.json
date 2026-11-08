@@ -39,5 +39,27 @@
       "Minecraft Fixes",
       "Gaming Troubleshooting"
     ]
+  },
+  {
+    "id": "snake-puzzle-slither-to-eat",
+    "title": "Snake Puzzle: Slither to Eat – Gameplay, Features, Tips & Review",
+    "slug": "snake-puzzle-slither-to-eat",
+    "description": "Discover Snake Puzzle: Slither to Eat, a fun mobile puzzle game where you guide a growing snake through challenging levels, eat apples, solve puzzles, and reach the portal. Explore its features, gameplay, tips, pros, cons, and review.",
+    "image": "games/games_photo/snake_puzzle_slither_to_eat/snake-puzzle-slither-to-eat.jpg",
+    "imageAlt": "Snake Puzzle Slither to Eat game thumbnail featuring a green snake, apples, and a puzzle portal",
+    "article": "games/articles/snake-puzzle-slither-to-eat.html",
+    "category": "Games",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-08",
+    "updatedAt": "2026-11-08",
+    "featured": false,
+    "tags": [
+      "Snake Puzzle",
+      "Slither to Eat",
+      "Puzzle Game",
+      "Mobile Game",
+      "Android Game",
+      "Game Review"
+    ]
   }
 ]
