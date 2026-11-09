@@ -1,0 +1,38 @@
+[
+  {
+    "id": "why-you-should-never-use-the-same-password-everywhere",
+    "title": "Why You Should Never Use the Same Password Everywhere",
+    "slug": "why-you-should-never-use-the-same-password-everywhere",
+    "description": "Learn why reusing passwords puts your accounts at risk, how credential stuffing works, and how to protect every account with unique passwords, a password manager, and MFA.",
+    "image": "blog/blog_photo/password_reuse/same-password-everywhere.jpg",
+    "imageAlt": "Illustration showing one reused password putting several online accounts at risk",
+    "article": "blog/articles/why-you-should-never-use-the-same-password-everywhere.html",
+    "category": "Blog",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-07",
+    "updatedAt": "2026-11-07",
+    "featured": false,
+    "tags": [
+      "blog",
+      "guide"
+    ]
+  },
+  {
+    "id": "how-much-personal-information-online",
+    "title": "How Much of Your Personal Information Is Available Online?",
+    "slug": "how-much-personal-information-online",
+    "description": "Find out what personal information can appear online, how websites and data brokers collect it, and practical steps to check your digital footprint and protect your privacy.",
+    "image": "blog/blog_photo/personal_information_online/personal-information-online.jpg",
+    "imageAlt": "A person reviewing their online presence and personal information on a computer",
+    "article": "blog/articles/how-much-personal-information-online.html",
+    "category": "Blog",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-06",
+    "updatedAt": "2026-11-06",
+    "featured": false,
+    "tags": [
+      "blog",
+      "guide"
+    ]
+  }
+]
