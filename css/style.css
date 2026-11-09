@@ -1111,3 +1111,39 @@ body {
     transition: none;
   }
 }
+
+/* Standard pages: centered column (About, Contact, Media Kit, Privacy, FAQ ...) */
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) {
+  --page-col: 820px;
+}
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .page-title .wrap,
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .section > .wrap {
+  max-width: var(--page-col);
+  margin-left: auto;
+  margin-right: auto;
+}
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .prose,
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .wide-prose,
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .contact-list,
+main:has(.prose, .wide-prose, .contact-list, .about-grid, .mk-report, .info-grid, .archive-list):not(:has(.article)) .page-title p {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About page: one centered column, logo centered on top */
+main:has(.about-grid) .about-grid {
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+}
+main:has(.about-grid) .about-logo {
+  order: -1;
+  justify-self: center;
+  max-width: 240px;
+  margin: 0 auto 0.5rem;
+}
+
+/* Media Kit: remove the extra nested box and side padding */
+main main .page-title { background: transparent; padding: 0 0 1rem; }
+main main .section { padding: 0; }
+main main .wrap { max-width: none; padding-left: 0; padding-right: 0; }
