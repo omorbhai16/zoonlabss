@@ -1,0 +1,56 @@
+[
+  {
+    "id": "what-is-a-cpu",
+    "title": "What Is a CPU? A Beginner's Guide to Computer Processors",
+    "slug": "what-is-a-cpu",
+    "description": "Learn what a CPU is, how processors work, and what cores, threads, clock speed, cache, architecture, and other CPU features mean in this beginner-friendly guide.",
+    "image": "product_gadget/product_gadget_photo/what-is-a-cpu/what-is-a-cpu.jpg",
+    "imageAlt": "Close-up view of a computer CPU processor chip on a motherboard",
+    "article": "product_gadget/articles/what-is-a-cpu.html",
+    "category": "Product & Gadget",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-08",
+    "updatedAt": "2026-11-08",
+    "featured": false,
+    "tags": [
+      "product gadget",
+      "guide"
+    ]
+  },
+  {
+    "id": "8gbram-16gbram-32gbram-64gbram",
+    "title": "8GB vs 16GB vs 32GB vs 64GB RAM: How Much RAM Do You Really Need in 2026?",
+    "slug": "8gbram-16gbram-32gbram-64gbram",
+    "description": "Compare 8GB, 16GB, 32GB, and 64GB RAM in 2026. Learn how much memory you need for gaming, programming, video editing, AI, and everyday use.",
+    "image": "product_gadget/product_gadget_photo/8gbram-16gbram-32gbram-64gbram/8gbramto64gbram.jpg",
+    "imageAlt": "Comparison of 8GB, 16GB, 32GB, and 64GB computer RAM modules",
+    "article": "product_gadget/articles/8gbram-16gbram-32gbram-64gbram.html",
+    "category": "Product & Gadget",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-05",
+    "updatedAt": "2026-11-05",
+    "featured": false,
+    "tags": [
+      "product gadget",
+      "guide"
+    ]
+  },
+  {
+    "id": "ssd-vs-hdd",
+    "title": "SSD vs HDD: Which One Should You Buy in 2026?",
+    "slug": "ssd-vs-hdd",
+    "description": "SSD vs HDD explained in simple terms. Compare speed, storage, price, durability, and performance to choose the right drive in 2026.",
+    "image": "product_gadget/product_gadget_photo/ssd_vs_hdd/ssd_vs_hdd.jpg",
+    "imageAlt": "Solid State Drive and Hard Disk Drive displayed side by side",
+    "article": "product_gadget/articles/ssd_vs_hdd.html",
+    "category": "Product & Gadget",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-03",
+    "updatedAt": "2026-11-03",
+    "featured": false,
+    "tags": [
+      "product gadget",
+      "guide"
+    ]
+  }
+]
