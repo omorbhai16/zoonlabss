@@ -6,11 +6,15 @@
    - The choice persists across pages (Google's "googtrans" cookie + localStorage "zl_lang").
    - Choosing a language reloads the page, and Google applies it immediately on load.
    - "English (Original)" removes the translation and reloads the original page.
+   - The list shows English (Original) as no. 1, then every other language A-Z by English name, numbered.
+   - Languages that Google's website widget does not offer (the newer Google Translate languages) are
+     translated through Google's web version of Website Translation (https://<site>.translate.goog/...),
+     so the picker can offer the full Google Translate language list.
    Built with safe DOM methods (no innerHTML). */
 (function () {
   "use strict";
   var KEY = "zl_lang";
-  var LANGS = [
+  var BASE = [
     ["bn", "বাংলা", "Bengali"], ["ar", "العربية", "Arabic"], ["fr", "Français", "French"],
     ["es", "Español", "Spanish"], ["de", "Deutsch", "German"], ["hi", "हिन्दी", "Hindi"],
     ["zh-CN", "中文 (简体)", "Chinese (Simplified)"], ["zh-TW", "中文 (繁體)", "Chinese (Traditional)"],
@@ -57,6 +61,65 @@
     ["ug", "ئۇيغۇرچە", "Uyghur"], ["cy", "Cymraeg", "Welsh"], ["xh", "isiXhosa", "Xhosa"],
     ["yi", "ייִדיש", "Yiddish"],
   ];
+
+  /* Newer Google Translate languages that the old Website Translator widget does not list.
+     They are translated through translate.goog (see startProxy). [code, native name, English name] */
+  var EXTRA = [
+    ["ab", "Аҧсуа", "Abkhaz"], ["ace", "Bahsa Acèh", "Acehnese"], ["ach", "Acholi", "Acholi"],
+    ["aa", "Afaraf", "Afar"], ["alz", "Alur", "Alur"], ["awa", "अवधी", "Awadhi"],
+    ["ban", "Basa Bali", "Balinese"], ["bgn", "بلوچی", "Baluchi"], ["bci", "Baoulé", "Baoulé"],
+    ["ba", "Башҡортса", "Bashkir"], ["btx", "Batak Karo", "Batak Karo"],
+    ["bts", "Batak Simalungun", "Batak Simalungun"], ["bbc", "Batak Toba", "Batak Toba"],
+    ["bew", "Betawi", "Betawi"], ["bik", "Bikol", "Bikol"], ["br", "Brezhoneg", "Breton"],
+    ["bua", "Буряад", "Buryat"], ["yue", "粵語", "Cantonese"], ["ch", "Chamoru", "Chamorro"],
+    ["ce", "Нохчийн", "Chechen"], ["chk", "Chuukese", "Chuukese"], ["cv", "Чӑвашла", "Chuvash"],
+    ["crh", "Qırımtatarca", "Crimean Tatar"], ["fa-AF", "دری", "Dari"], ["din", "Thuɔŋjäŋ", "Dinka"],
+    ["dov", "Dombe", "Dombe"], ["dyu", "Julakan", "Dyula"], ["dz", "རྫོང་ཁ", "Dzongkha"],
+    ["fo", "Føroyskt", "Faroese"], ["fj", "Vosa Vakaviti", "Fijian"], ["fon", "Fon", "Fon"],
+    ["fur", "Furlan", "Friulian"], ["ff", "Fulfulde", "Fulani"], ["gaa", "Ga", "Ga"],
+    ["cnh", "Hakha Chin", "Hakha Chin"], ["hil", "Ilonggo", "Hiligaynon"], ["hrx", "Hunsrik", "Hunsrik"],
+    ["iba", "Iban", "Iban"], ["iu-Latn", "Inuktitut", "Inuktut (Latin)"], ["iu", "ᐃᓄᒃᑎᑐᑦ", "Inuktut (Syllabics)"],
+    ["jam", "Patwa", "Jamaican Patois"], ["kac", "Jingpho", "Jingpo"], ["kl", "Kalaallisut", "Kalaallisut"],
+    ["kr", "Kanuri", "Kanuri"], ["cgg", "Rukiga", "Kiga"], ["kg", "Kikongo", "Kikongo"],
+    ["ktu", "Kituba", "Kituba"], ["trp", "Kokborok", "Kokborok"], ["ltg", "Latgalīšu", "Latgalian"],
+    ["lij", "Ligure", "Ligurian"], ["li", "Limburgs", "Limburgish"], ["lmo", "Lombard", "Lombard"],
+    ["luo", "Dholuo", "Luo"], ["mad", "Madhura", "Madurese"], ["mak", "Makassar", "Makassar"],
+    ["ms-Arab", "بهاس ملايو", "Malay (Jawi)"], ["mh", "Kajin M̧ajeļ", "Marshallese"],
+    ["mwr", "मारवाड़ी", "Marwadi"], ["mfe", "Morisien", "Mauritian Creole"], ["chm", "Марий", "Meadow Mari"],
+    ["min", "Minangkabau", "Minang"], ["nhe", "Nahuatl", "Nahuatl (Eastern Huasteca)"],
+    ["ndc-ZW", "Ndau", "Ndau"], ["new", "नेपाल भाषा", "Nepalbhasa (Newari)"], ["bm-Nkoo", "ߒߞߏ", "NKo"],
+    ["nus", "Thok Naath", "Nuer"], ["oc", "Occitan", "Occitan"], ["pag", "Pangasinan", "Pangasinan"],
+    ["pam", "Kapampangan", "Pampanga"], ["pap", "Papiamentu", "Papiamento"],
+    ["pa-Arab", "پنجابی (شاہ مکھی)", "Punjabi (Shahmukhi)"], ["kek", "Q'eqchi'", "Q'eqchi'"],
+    ["rom", "Romani", "Romani"], ["rn", "Ikirundi", "Rundi"], ["sat-Latn", "Santali (Latin)", "Santali (Latin)"],
+    ["sat", "ᱥᱟᱱᱛᱟᱲᱤ", "Santali (Ol Chiki)"], ["sg", "Sängö", "Sango"],
+    ["crs", "Kreol Seselwa", "Seychellois Creole"], ["shn", "ၵႂၢမ်းတႆး", "Shan"], ["scn", "Sicilianu", "Sicilian"],
+    ["szl", "Ślōnski", "Silesian"], ["se", "Davvisámegiella", "Sami (North)"], ["sus", "Susu", "Susu"],
+    ["ss", "SiSwati", "Swati"], ["ty", "Reo Tahiti", "Tahitian"], ["ber-Latn", "Tamazight", "Tamazight"],
+    ["ber", "ⵜⴰⵎⴰⵣⵉⵖⵜ", "Tamazight (Tifinagh)"], ["tet", "Tetun", "Tetum"], ["bo", "བོད་སྐད།", "Tibetan"],
+    ["tiv", "Tiv", "Tiv"], ["tpi", "Tok Pisin", "Tok Pisin"], ["to", "Lea Faka-Tonga", "Tongan"],
+    ["lua", "Tshiluba", "Tshiluba"], ["tn", "Setswana", "Tswana"], ["tum", "Chitumbuka", "Tumbuka"],
+    ["tyv", "Тыва дыл", "Tuvan"], ["udm", "Удмурт", "Udmurt"], ["ve", "Tshivenḓa", "Venda"],
+    ["vec", "Vèneto", "Venetian"], ["war", "Winaray", "Waray"], ["wo", "Wolof", "Wolof"],
+    ["yua", "Maaya T'aan", "Yucatec Maya"], ["zap", "Zapotec", "Zapotec"], ["os", "Ирон", "Ossetian"],
+  ];
+  var LANGS = BASE.concat(EXTRA);
+  var WIDGET = {}; // codes the Google website widget itself offers (filled from BASE, then from the live widget)
+  BASE.forEach(function (l) {
+    WIDGET[l[0]] = true;
+  });
+  var NUM = {}; // code -> list number. English (Original) is no. 1, the others start at 2.
+  /* Sort every language A-Z by its English name and number it. */
+  function sortLangs() {
+    LANGS.sort(function (a, b) {
+      return a[2].localeCompare(b[2], "en", { sensitivity: "base" }) || (a[0] < b[0] ? -1 : 1);
+    });
+    NUM = {};
+    LANGS.forEach(function (l, i) {
+      NUM[l[0]] = i + 2;
+    });
+  }
+  sortLangs();
   var ALIAS = { iw: "he", he: "iw", no: "nb", tl: "fil", jw: "jv" };
   var LOAD_TIMEOUT = 15000;
 
@@ -121,6 +184,65 @@
     return null;
   }
 
+
+  /* ---------- translate.goog (Google Translate's website mode) ---------- */
+  var PROXY_SUFFIX = ".translate.goog";
+  var onProxy = location.hostname.slice(-PROXY_SUFFIX.length) === PROXY_SUFFIX;
+  // example.com -> example-com.translate.goog ; a "-" in the name becomes "--"
+  function proxyHost(h) {
+    return h.replace(/-/g, "--").replace(/\./g, "-") + PROXY_SUFFIX;
+  }
+  function originUrl() {
+    var cfg = window.ZL_CONFIG && window.ZL_CONFIG.siteOrigin;
+    if (cfg) {
+      try {
+        var u = new URL(cfg);
+        if (proxyHost(u.hostname) === location.hostname) return u.origin;
+      } catch (e) {}
+    }
+    var h = location.hostname
+      .slice(0, -PROXY_SUFFIX.length)
+      .replace(/--/g, "\u0001")
+      .replace(/-/g, ".")
+      .replace(/\u0001/g, "-");
+    return "https://" + h;
+  }
+  function cleanSearch() {
+    var parts = location.search
+      .replace(/^\?/, "")
+      .split("&")
+      .filter(function (x) {
+        return x && x.indexOf("_x_tr_") !== 0;
+      });
+    return parts.length ? "?" + parts.join("&") : "";
+  }
+  function proxyLang() {
+    var m = location.search.match(/[?&]_x_tr_tl=([^&]+)/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function canProxy() {
+    var h = location.hostname;
+    return /^https?:$/.test(location.protocol) && h.indexOf(".") !== -1 && !/^[\d.]+$/.test(h);
+  }
+  function goProxy(code) {
+    var base = onProxy ? new URL(originUrl()).hostname : location.hostname;
+    var path = location.pathname + cleanSearch();
+    var q = "_x_tr_sl=en&_x_tr_tl=" + encodeURIComponent(code) + "&_x_tr_hl=en&_x_tr_pto=wapp";
+    location.href = "https://" + proxyHost(base) + path + (path.indexOf("?") === -1 ? "?" : "&") + q + location.hash;
+  }
+  function startProxy(code) {
+    if (!onProxy && !canProxy()) {
+      return setStatus("This language works only on the live website, not on a local copy of it.", "error");
+    }
+    var l = langName(code);
+    setStatus("Translating to " + (l ? l[2] : code) + "…", "loading");
+    try {
+      localStorage.removeItem(KEY);
+    } catch (e) {}
+    if (!onProxy) clearCookies();
+    goProxy(code);
+  }
+
   /* Never translate code samples, scripts or styles. */
   Array.prototype.forEach.call(
     document.querySelectorAll("pre, code, kbd, samp, script, style"),
@@ -149,11 +271,14 @@
     });
     var added = false;
     Array.prototype.forEach.call(sel.options, function (o) {
-      if (o.value && !known[o.value]) {
+      if (!o.value) return;
+      WIDGET[o.value] = true;
+      if (!known[o.value]) {
         LANGS.push([o.value, o.text, o.text]);
         added = true;
       }
     });
+    if (added) sortLangs();
     // Re-draw the list only if something new was added, and keep the visitor's scroll position
     // (a surprise redraw while choosing could make the click land on a different language).
     if (added && !panel.hidden) {
@@ -279,8 +404,9 @@
   panel.appendChild(list);
   panel.appendChild(credit);
 
-  var active = getSaved();
+  var active = onProxy ? proxyLang() : getSaved();
   if (active === "en") active = null;
+  if (active && !onProxy && !WIDGET[active]) active = null; // a proxy-only language is never remembered
 
   function setStatus(msg, type) {
     status.textContent = msg || "";
@@ -289,21 +415,24 @@
   function renderList() {
     var q = search.value.trim().toLowerCase();
     list.textContent = "";
-    function item(code, label, sub) {
+    function item(code, label, sub, num) {
       var li = el("li");
       var b = el("button", "zl-tr-item");
       b.type = "button";
       b.dataset.code = code;
-      var n = el("span", null, label);
+      var n = el("span", null, "(" + num + ") " + label);
       b.appendChild(n);
       if (sub) b.appendChild(el("small", null, sub));
       if ((code === "en" && !active) || code === active) b.setAttribute("aria-current", "true");
       li.appendChild(b);
       list.appendChild(li);
     }
-    if (!q || "english original".indexOf(q) !== -1) item("en", "English (Original)", "");
+    if (!q || "english original".indexOf(q) !== -1 || q === "1") item("en", "English (Original)", "", 1);
     LANGS.forEach(function (l) {
-      if (!q || (l[1] + " " + l[2]).toLowerCase().indexOf(q) !== -1) item(l[0], l[1], l[2]);
+      var num = NUM[l[0]];
+      if (!q || (l[1] + " " + l[2]).toLowerCase().indexOf(q) !== -1 || String(num) === q) {
+        item(l[0], l[2], l[1] !== l[2] ? l[1] : "", num);
+      }
     });
     if (!list.children.length) setStatus("No language matches your search.", "info");
     else if (status.dataset.type === "info") setStatus("");
@@ -314,6 +443,10 @@
     try {
       localStorage.removeItem(KEY);
     } catch (e) {}
+    if (onProxy) {
+      location.href = originUrl() + location.pathname + cleanSearch() + location.hash;
+      return;
+    }
     clearCookies();
     location.reload();
   }
@@ -339,7 +472,9 @@
   function choose(code) {
     if (code === "en") return restore();
     var l = langName(code);
-    // If the widget is already loaded we can warn about unsupported languages before reloading.
+    if (onProxy) return startProxy(code); // already on the translate.goog version: it handles every language
+    // Languages the widget offers are translated in place; all others go through translate.goog.
+    var inWidget = !!WIDGET[code];
     var sel = findCombo();
     if (sel && sel.options.length > 1) {
       var has = function (v) {
@@ -347,10 +482,9 @@
           return o.value === v;
         });
       };
-      if (!has(code) && !(ALIAS[code] && has(ALIAS[code]))) {
-        return setStatus("Sorry, this language is not supported by the translation service.", "error");
-      }
+      inWidget = has(code) || !!(ALIAS[code] && has(ALIAS[code]));
     }
+    if (!inWidget) return startProxy(code);
     if (widget.failed) {
       // Google's script could not be loaded earlier: retry once and tell the visitor if it still fails.
       setStatus("Loading translation…", "loading");
@@ -413,6 +547,7 @@
   function mount() {
     document.body.appendChild(panel);
     document.body.appendChild(btn);
+    if (onProxy) return; // Google's own translate.goog page already did the translation
     if (active) {
       setCookie(active); // Google applies the saved language as soon as its widget starts
       loadWidget().catch(function () {}); // start immediately, not after the load event
