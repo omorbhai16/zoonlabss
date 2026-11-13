@@ -934,7 +934,9 @@ body {
 }
 .share a,
 .share button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.45rem 0.9rem;
   border: 1px solid #cbd5e1;
   border-radius: 99px;
@@ -945,11 +947,24 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+.share [hidden] {
+  display: none;
+}
+.share .share-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+}
 .share a:hover,
 .share button:hover {
   border-color: var(--blue);
   color: var(--blue);
 }
+.share a.share-facebook:hover { border-color: #0866ff; }
+.share a.share-x:hover { border-color: #000; }
+.share a.share-whatsapp:hover { border-color: #25d366; }
+.share a.share-telegram:hover { border-color: #26a5e4; }
+.share a.share-linkedin:hover { border-color: #0a66c2; }
 .disclosure {
   border-left: 4px solid #f59e0b;
   background: #fffbeb;
