@@ -12,10 +12,7 @@
     "publishedAt": "2026-11-07",
     "updatedAt": "2026-11-07",
     "featured": false,
-    "tags": [
-      "blog",
-      "guide"
-    ]
+    "tags": ["blog", "guide"]
   },
   {
     "id": "how-much-personal-information-online",
@@ -30,10 +27,7 @@
     "publishedAt": "2026-11-06",
     "updatedAt": "2026-11-06",
     "featured": false,
-    "tags": [
-      "blog",
-      "guide"
-    ]
+    "tags": ["blog", "guide"]
   },
   {
     "id": "how-to-build-a-strong-online-presence",
@@ -48,9 +42,21 @@
     "publishedAt": "2026-11-11",
     "updatedAt": "2026-11-11",
     "featured": false,
-    "tags": [
-      "blog",
-      "guide"
-    ]
+    "tags": ["blog", "guide"]
+  },
+  {
+    "id": "10-common-mistakes-new-entrepreneurs-should-avoid",
+    "title": "10 Common Mistakes New Entrepreneurs Should Avoid",
+    "slug": "10-common-mistakes-new-entrepreneurs-should-avoid",
+    "description": "Discover 10 common mistakes new entrepreneurs should avoid, from poor market research and weak planning to financial problems, ineffective marketing, and burnout.",
+    "image": "blog/blog_photo/10-common-mistakes-new-entrepreneurs/10-common-mistakes-new-entrepreneurs-should-avoid-featured.jpg",
+    "imageAlt": "Illustration representing common mistakes that new entrepreneurs should avoid when starting a business",
+    "article": "blog/articles/10-common-mistakes-new-entrepreneurs-should-avoid.html",
+    "category": "Blog",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-16",
+    "updatedAt": "2026-11-16",
+    "featured": false,
+    "tags": ["blog", "guide", "entrepreneurship", "business"]
   }
 ]
