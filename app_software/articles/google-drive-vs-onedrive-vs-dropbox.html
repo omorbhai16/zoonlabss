@@ -26,6 +26,45 @@
 <link href="../../css/style.css?v=3" rel="stylesheet"/>
 <link href="../../css/responsive.css?v=3" rel="stylesheet"/>
 <link href="../../css/article.css" rel="stylesheet"/>
+<style id="comparison-table-responsive">
+  .comparison-table-scroll {
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+
+  .comparison-table-scroll table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .comparison-table-scroll th,
+  .comparison-table-scroll td {
+    padding: 0.7rem 0.75rem;
+    line-height: 1.45;
+    vertical-align: top;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .comparison-table-scroll table {
+      min-width: 680px;
+    }
+
+    .comparison-table-scroll th,
+    .comparison-table-scroll td {
+      padding: 0.55rem 0.6rem;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+  }
+</style>
 <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -224,6 +263,7 @@
 <figcaption>A quick comparison of the main differences between the three services.</figcaption>
 </figure>
 <p>Here is a quick look at the main differences. Storage figures refer to the standard free personal plans, not business or school accounts. Features and limits can vary by country, account type, and subscription.</p>
+<div class="comparison-table-scroll" role="region" aria-label="Google Drive, OneDrive, and Dropbox feature comparison" tabindex="0">
 <table>
 <thead><tr><th>Feature</th><th>Google Drive</th><th>OneDrive</th><th>Dropbox</th></tr></thead>
 <tbody>
@@ -236,6 +276,7 @@
 <tr><td>File sharing</td><td>Links and user permissions</td><td>Links and user permissions</td><td>Shared links and folders</td></tr>
 </tbody>
 </table>
+</div>
 <p>The table gives a general overview, not a lab test. It does not claim that one service is always faster or more reliable. Your internet connection, device, file size, and sync settings can affect the experience.</p>
 <h2 id="pricing">6. Free Storage and Paid Plans: What Do You Get?</h2>
 <figure>
