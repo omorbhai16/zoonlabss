@@ -3,4 +3,4 @@ Allow: /
 Disallow: /templates/
 Disallow: /tools/
 
-Sitemap: https://zoonlabss.com/sitemap.xml
+Sitemap: https://www.zoonlabss.com/sitemap.xml
