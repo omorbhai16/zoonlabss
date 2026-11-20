@@ -52,5 +52,24 @@
       "ai tools",
       "guide"
     ]
+  },
+  {
+    "id": "canva-ai-tutorial",
+    "title": "Canva AI: Features, Tools, and How to Use Canva AI in 2026",
+    "slug": "canva-ai-tutorial",
+    "description": "Learn how to use Canva AI to create designs, generate images, write content, edit photos, and make creative work easier with AI-powered tools.",
+    "image": "ai_tools/ai_tools_photo/canva-ai-tutorial/canva-ai-tutorial.jpg",
+    "imageAlt": "Canva AI tutorial thumbnail showing Canva's AI-powered design tools and creative workspace",
+    "article": "ai_tools/articles/canva-ai-tutorial.html",
+    "category": "AI & Tools",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-21",
+    "updatedAt": "2026-11-21",
+    "featured": false,
+    "tags": [
+      "Canva",
+      "Ai",
+      "Canva Ai"
+    ]
   }
 ]
