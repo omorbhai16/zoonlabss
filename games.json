@@ -70,5 +70,23 @@
       "games",
       "guide"
     ]
+  },
+    {
+    "id": "gta-6-release",
+    "title": "GTA 6 After Release: Sales, Reviews, Gameplay & Updates",
+    "slug": "gta-6-release",
+    "description": "Explore GTA 6 after its November 19, 2026 launch. Read about its record first-day sales, early reviews, gameplay details, Jason and Lucia, and what comes next.",
+    "image": "games/games_photo/gta-6-release/gta-6-release.jpg",
+    "imageAlt": "Grand Theft Auto VI promotional artwork featuring Jason and Lucia",
+    "article": "games/articles/gta-6-release.html",
+    "category": "Games",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-21",
+    "updatedAt": "2026-11-21",
+    "featured": false,
+    "tags": [
+      "games",
+      "guide"
+    ]
   }
 ]
