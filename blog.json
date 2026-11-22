@@ -58,5 +58,20 @@
     "updatedAt": "2026-11-16",
     "featured": false,
     "tags": ["blog", "guide", "entrepreneurship", "business"]
+  },
+  {
+    "id": "ai-agents",
+    "title": "AI Agents: What They Are, How They Work, and How They Are Changing the World",
+    "slug": "ai-agents",
+    "description": "Learn what AI agents are, how they work, their real-world uses, benefits, risks, and how they are changing the way people live and work.",
+    "image": "blog/blog_photo/ai_agents/ai-agents.jpg",
+    "imageAlt": "An AI agent using artificial intelligence to understand instructions and complete tasks",
+    "article": "blog/articles/ai-agents.html",
+    "category": "Blog",
+    "author": "Zoon Labss Editorial Team",
+    "publishedAt": "2026-11-22",
+    "updatedAt": "2026-11-22",
+    "featured": false,
+    "tags": ["blog", "guide", "artificial-intelligence", "ai-agents", "technology"]
   }
 ]
